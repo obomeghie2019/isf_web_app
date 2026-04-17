@@ -11,8 +11,8 @@ require 'db_params.php';
 
 
 function makePaymentByPaystack($email, $amount, $payid, $payer, $phone){
-      $seckey = $_ENV['STRIPE_SECRET_KEY'];
-        $pubkey=$_ENV['STRIPE_PUBLIC_KEY'];
+       $seckey = 'SK_SECKEY';
+        $pubkey='PK_PUBKEY';
         $apiurl='https://api.paystack.co/transaction/initialize';
         $verifyurl='https://api.paystack.co/transaction/verify/';
         $callback='https://360globalnetwork.com.ng/isf2024/apply.php'; // create new page success.php
@@ -67,7 +67,7 @@ function makePaymentByPaystack($email, $amount, $payid, $payer, $phone){
 
 function verifyPaymentByPaystack($trans, $refno){
       $seckey = $_ENV['STRIPE_SECRET_KEY'];
-        $pubkey=$_ENV['STRIPE_PUBLIC_KEY'];
+        $pubkey=$_ENV['STRIPE_SECRET_KEY'];
         $apiurl='https://api.paystack.co/transaction/initialize';
         $verifyurl='https://api.paystack.co/transaction/verify/';
         $callback='https://360globalnetwork.com.ng/isf2024/register.php';

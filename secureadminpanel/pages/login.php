@@ -153,7 +153,7 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" name="login">Login</button>
+            <button type="submit" id="login-btn" name="login">Login</button>
           </div>
         </form>
       </div>

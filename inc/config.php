@@ -1,4 +1,5 @@
 <?php
+ require_once __DIR__ . '/../env_loader.php';
 // Database Configuration
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
@@ -19,6 +20,9 @@ try {
     die("Connection failed: " . $e->getMessage());
 }
 
-session_start();
+// in inc/config.php line 22
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 ?>
