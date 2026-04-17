@@ -1,0 +1,46 @@
+# =====================================================
+#  ISF 2026 — .gitignore
+#  Files and folders Git should NEVER track
+# =====================================================
+
+# ── Environment / Secret Keys ──────────────────────
+.env
+.env.local
+.env.production
+*.env
+
+# ── Uploaded files (large, user content) ───────────
+uploads/
+uploads/slides/
+uploads/banners/
+uploads/profiles/
+
+# ── Database dumps / backups ────────────────────────
+*.sql
+*.sql.gz
+*.dump
+backups/
+
+# ── PHP error logs ──────────────────────────────────
+*.log
+error_log
+php_errors.log
+
+# ── OS junk files ───────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE files ──────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Composer / Node dependencies ────────────────────
+vendor/
+node_modules/
+
+# ── Cache ───────────────────────────────────────────
+cache/
+*.cache

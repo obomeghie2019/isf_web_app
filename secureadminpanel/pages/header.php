@@ -168,7 +168,8 @@ body {
         <li><a href="payments.php"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
         <li><a href="registration-control.php"><i class="fas fa-globe"></i> <span>Web App Settings</span></a></li>
           <li><a href="mobile-app-control.php"><i class="fas fa-mobile"></i> <span>Mobile App Settings</span></a></li>
-          <li><a href="mobile_slides.php">🖼️ Mobile App Slides</a></li>
+          <li><a href="mobile_slides.php"><i class="fas fa-mobile"></i><span>🖼️ Mobile App Slides</span></a></li>
+          <li><a href="football_highlights.php"><i class="fas fa-mobile"></i><span>▶️ISF Highlights</span></a></li>
         <li><a href="passwordChange.php"><i class="fas fa-key"></i> <span>Change Admin Password</span></a></li>
         <li><a href="log-out.php" class="text-danger"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
     </ul>

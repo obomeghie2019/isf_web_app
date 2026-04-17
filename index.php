@@ -1174,254 +1174,62 @@ $aboutData = $aboutQuery->fetch(PDO::FETCH_ASSOC);
     }
 }
 
-/* ===================== ROUTE MAP SECTION ===================== */
-.route-map-section {
-    padding: 90px 0;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.route-map-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -10%;
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-    border-radius: 50%;
-    z-index: 0;
-    animation: floatBackground 20s ease-in-out infinite;
-}
-
-@keyframes floatBackground {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-    }
-    50% {
-        transform: translate(50px, 30px) scale(1.1);
-    }
-}
-
-.route-map-section .container {
-    position: relative;
-    z-index: 1;
-}
-
-.route-map-header {
-    text-align: center;
-    margin-bottom: 60px;
-    animation: fadeInDown 0.8s ease-out;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.section-label-map {
-    display: inline-block;
-    color: #667eea;
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.route-map-title {
-    font-size: 42px;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    line-height: 1.3;
-}
-
-.title-underline-center {
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-    margin: 0 auto 25px;
-    border-radius: 2px;
-    animation: scaleInCenter 0.8s ease-out 0.3s backwards;
-}
-
-@keyframes scaleInCenter {
-    from {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-    to {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-}
-
-.route-map-subtitle {
-    font-size: 18px;
-    color: #5a6c7d;
-    font-weight: 400;
-    margin: 0;
-}
-
-.route-map-container {
-    max-width: 100%;
-    margin: 0 auto;
-    animation: fadeInUp 1s ease-out 0.4s backwards;
-}
-
-.route-map-wrapper {
-    position: relative;
+/* ===================== BOTTOM FIXED IMAGE SECTION ===================== */
+.bottom-fixed-image {
     width: 100%;
-    border-radius: 20px;
+    position: relative;
+    background: #0a0a0a;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fff;
 }
 
-.route-map-wrapper:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+.bottom-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.route-map-image {
-    width: 1200px;
-    height: 500px;
+.bottom-scalable-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
     display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.route-map-wrapper:hover .route-map-image {
-    transform: scale(1.02);
+/* Ensures image scales fully to bottom space */
+.bottom-fixed-image {
+    min-height: 200px;
 }
 
-.map-overlay-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(102, 126, 234, 0.05) 0%,
-        rgba(118, 75, 162, 0.05) 100%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.route-map-wrapper:hover .map-overlay-gradient {
-    opacity: 1;
-}
-
-/* Corner decoration */
-.route-map-wrapper::before {
-    content: '📍';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 40px;
-    z-index: 2;
-    opacity: 0;
-    transform: scale(0) rotate(-45deg);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.route-map-wrapper:hover::before {
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-}
-
-/* Border animation on hover */
-.route-map-wrapper::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-    border-radius: 20px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
+/* For larger screens, image takes full width */
+@media (min-width: 1200px) {
+    .bottom-scalable-image {
+        width: 100%;
+        height: auto;
     }
 }
 
-.route-map-wrapper:hover::after {
-    opacity: 1;
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-    .route-map-section {
-        padding: 70px 0;
-    }
-    
-    .route-map-header {
-        margin-bottom: 40px;
-    }
-    
-    .route-map-title {
-        font-size: 32px;
-    }
-    
-    .route-map-subtitle {
-        font-size: 16px;
+/* For smaller screens, maintain aspect ratio */
+@media (max-width: 768px) {
+    .bottom-scalable-image {
+        width: 100%;
+        height: auto;
     }
 }
 
-@media (max-width: 576px) {
-    .route-map-section {
-        padding: 50px 0;
-    }
-    
-    .route-map-title {
-        font-size: 26px;
-    }
-    
-    .route-map-subtitle {
-        font-size: 14px;
-    }
-    
-    .route-map-wrapper {
-        border-radius: 12px;
-    }
-    
-    .route-map-wrapper::before {
-        font-size: 30px;
-        top: 15px;
-        right: 15px;
-    }
+/* Hover effect for better UX */
+.bottom-scalable-image:hover {
+    transform: scale(1.01);
 }
 
+/* Ensure no overflow issues */
+.bottom-fixed-image {
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
 </style>
 
 
@@ -1512,16 +1320,7 @@ $slidesData = $slidesQuery->fetchAll(PDO::FETCH_ASSOC);
                 <h2 class="registration-title">Registration Currently Closed</h2>
                 <p class="registration-subtitle">Registration for ISF 2026 is temporarily closed.!</p>
                 
-                <!-- <div class="notify-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="closed-icon">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                    <h3>Stay Updated</h3>
-                    <p>Follow our social media channels or contact us for updates on when registration will reopen.</p>
-                    <a href="contact.php" class="btn btn-contact">Contact Us</a>
-                </div> -->
+             
             </div>
         <?php endif; ?>
     </div>
@@ -1626,29 +1425,17 @@ $slidesData = $slidesQuery->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </section>
-<!-- ===================== END ABOUT & STATS ===================== -->
 
-<!-- ===================== ROUTE MAP SECTION ===================== -->
-<section class="route-map-section">
-    <div class="container">
-        <div class="route-map-header">
-            <span class="section-label-map">ISF Marathon Race Route</span>
-            <h2 class="route-map-title">Are you ready to run?</h2>
-            <div class="title-underline-center"></div>
-            <p class="route-map-subtitle">Navigate your way to the Iyekhei Sport Festival venue</p>
-        </div>
-        
-        <div class="route-map-container">
-            <div class="route-map-wrapper">
-                <img src="img/route_map.jpg" 
-                     alt="Route Map for ISF Marathon Start Point and Finih Line" 
-                     class="route-map-image">
-                <div class="map-overlay-gradient"></div>
-            </div>
-        </div>
+<!-- ===================== BOTTOM FIXED SCALABLE IMAGE ===================== -->
+<div class="bottom-fixed-image">
+    <div class="bottom-image-wrapper">
+        <img src="img/isfmobile_img.png" 
+             class="bottom-scalable-image"
+             alt="ISF Mobile Image"
+             style="width: 100%; height: auto; display: block;">
     </div>
-</section>
-<!-- ===================== END ROUTE MAP ===================== -->
+</div>
+<!-- ===================== END BOTTOM IMAGE ===================== -->
 
 <script>
 function animateCounter(id, target) {
